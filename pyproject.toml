@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bench-download"
+version = "0.1.0"
+description = "Sequential HTTP download benchmark CLI"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31",
+    "urllib3>=1.26,<3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.10",
+    "types-requests>=2.31",
+]
+
+[project.scripts]
+bench-download = "bench_download.main:main"
+
+[tool.setuptools.packages.find]
+include = ["bench_download*"]
